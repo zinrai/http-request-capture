@@ -26,10 +26,46 @@ Lightweight Go application that serves as an HTTP server, capturing and displayi
 
 When you send a request to the server, you'll see output similar to this:
 
-### application/x-www-form-urlencoded
+### GET request
+
+```bash
+$ curl "http://localhost:8000/test?param1=value1&param2=value2"
+Hello from GET
+```
+
+```
+HttpRequestCapture: Serving on port 8000...
+Full request dump:
+GET /test?param1=value1&param2=value2 HTTP/1.1
+Host: localhost:8000
+Accept: */*
+User-Agent: curl/8.9.1
+
+
+
+path = /test
+parsed: path = /test, query = {
+  "param1": [
+    "value1"
+  ],
+  "param2": [
+    "value2"
+  ]
+}
+
+Headers:
+-----
+Accept: */*
+User-Agent: curl/8.9.1
+-----
+
+```
+
+### POST request ( application/x-www-form-urlencoded )
 
 ```bash
 $ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d "username=johndoe&password=secret123" http://localhost:8000
+ok
 ```
 
 ```
@@ -54,10 +90,11 @@ Body (application/x-www-form-urlencoded):
 username=johndoe&password=secret123
 ```
 
-### application/json
+### POST request ( application/json )
 
 ```bash
 $ curl -X POST -H "Content-Type: application/json" -d '{"username":"johndoe","password":"secret123"}' http://localhost:8000
+ok
 ```
 
 ```
