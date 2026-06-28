@@ -8,11 +8,11 @@ http-request-capture listens for HTTP requests on any path and logs the method, 
 
 ## Usage
 
-Start the server (defaults to `:8000`):
+Start the server (defaults to `127.0.0.1:8000`):
 
 ```
 $ ./http-request-capture
-{"time":"2026-06-02T17:15:54.668175236+09:00","level":"INFO","msg":"HttpRequestCapture starting","addr":":8000"}
+{"time":"2026-06-02T17:15:54.668175236+09:00","level":"INFO","msg":"HttpRequestCapture starting","addr":"127.0.0.1:8000"}
 ```
 
 Listen on a different address with `-addr`:

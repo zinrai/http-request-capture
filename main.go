@@ -98,7 +98,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	addr := flag.String("addr", ":8000", "Address and port to listen on")
+	addr := flag.String("addr", "127.0.0.1:8000", "Address and port to listen on")
 	flag.Parse()
 
 	slog.SetDefault(slog.New(slog.NewJSONHandler(os.Stdout, nil)))
