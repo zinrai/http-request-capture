@@ -99,7 +99,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	addr := flag.String("addr", "127.0.0.1:8000", "Address and port to listen on")
+	showVersion := flag.Bool("version", false, "Print version information and exit")
 	flag.Parse()
+
+	if *showVersion {
+		printVersion()
+		os.Exit(0)
+	}
 
 	slog.SetDefault(slog.New(slog.NewJSONHandler(os.Stdout, nil)))
 
